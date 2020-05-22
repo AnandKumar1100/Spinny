@@ -13,7 +13,10 @@ function* fetchMoviesList(action) {
         if (resp && resp.Search) {
             yield put({ type: FETCH_MOVIES_LIST_SUCCESS, data: resp.Search });
         }
-        else alert('Movie not found!')
+        else {
+            alert('Movie not found!')
+            yield put({ type: FETCH_MOVIES_LIST_FAILURE, message:'Something went wrong!!' });
+        }
     } catch (err) {
         alert(err)
         yield put({ type: FETCH_MOVIES_LIST_FAILURE, message:'Something went wrong!!' });
