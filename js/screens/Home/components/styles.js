@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 
 export const Styles = StyleSheet.create({
@@ -12,7 +12,8 @@ export const Styles = StyleSheet.create({
     heading: {
         textAlign: 'center',
         fontSize: 14,
-        color: '#379aff'
+        color: '#379aff',
+        marginTop: Platform.OS === 'android' ? 8 :0
     },
     blueUnderline: {
         height: 2,
@@ -26,9 +27,9 @@ export const Styles = StyleSheet.create({
         alignItems: 'center'
     },
     listStyles: {
-        flex: 1,
         paddingTop: 12,
-        paddingLeft: 16
+        paddingLeft: 16,
+        paddingBottom: 16
     },
     marginRight_16: {
         marginRight: 16
@@ -40,12 +41,13 @@ export const Styles = StyleSheet.create({
     },
     searchBarContainer: {
         backgroundColor: 'rgb(240, 243, 247)',
-        paddingVertical: 16,
+        paddingVertical: Platform.OS === 'ios' ? 16 : 0,
         paddingLeft: 16,
         paddingRight: 32,
         marginHorizontal: 16,
         marginTop: 24,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        borderRadius: 4
     },
     searchIcon: {
         position: 'absolute',

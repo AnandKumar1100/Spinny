@@ -28,7 +28,7 @@ export default class HomeScreen extends Component {
   renderSearchBar = () => {
     return (<View style={Styles.searchBarContainer}>
       <TextInput onSubmitEditing={this.handleTextChange} placeholder={'Search Movies...'} style={Styles.flex_1}/>
-      <Icon name='search' size={18} color={'rgb(117, 118, 124)'} style={Styles.searchIconx} />
+      <Icon name='search' size={18} color={'rgb(117, 118, 124)'} style={Styles.searchIcon} />
     </View>);
   }
 
@@ -63,6 +63,7 @@ export default class HomeScreen extends Component {
             extraData={shortlistedItem}
             numColumns={2}
             keyExtractor={this.itemKeyExtractor}
+            style={Styles.flex_1}
             contentContainerStyle={Styles.listStyles}
             renderItem={this.renderItem}
             ListEmptyComponent={this.renderEmptyScreen} />}

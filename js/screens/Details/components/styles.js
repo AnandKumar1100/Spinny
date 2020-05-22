@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 
 export const Styles = StyleSheet.create({
@@ -9,7 +9,8 @@ export const Styles = StyleSheet.create({
     heading: {
         textAlign: 'center',
         fontSize: 14,
-        color: '#379aff'
+        color: '#379aff',
+        marginTop: Platform.OS === 'android' ? 8 : 0
     },
     blueUnderline: {
         height: 2,
