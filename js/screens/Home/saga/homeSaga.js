@@ -10,7 +10,10 @@ function* fetchMoviesList(action) {
     try {
         let pageNo = yield select((state) => state.HomeScreenReducer.pageNo);
         let resp = yield Api.fetchMoviesList(action.searchText, pageNo);
-        yield put({ type: FETCH_MOVIES_LIST_SUCCESS, data: resp.Search });
+        if (resp && resp.Search) {
+            yield put({ type: FETCH_MOVIES_LIST_SUCCESS, data: resp.Search });
+        }
+        else alert('Movie not found!')
     } catch (err) {
         alert(err)
         yield put({ type: FETCH_MOVIES_LIST_FAILURE, message:'Something went wrong!!' });
