@@ -8,6 +8,11 @@ import MoviesTile from '../../../components/moviesTile';
 
 export default class HomeScreen extends Component {
 
+  constructor(props) {
+    super(props)
+    this.searchText = undefined
+  }
+
   saveDataToRedux = (item, index) => {
     if (this.props.shortlistedItem[index]) {
       this.props.removeItemFromRedux(index)
@@ -15,19 +20,22 @@ export default class HomeScreen extends Component {
       this.props.saveDataToRedux({ [index]: item })
   }
 
-  handleTextChange = (event) => {
-    const searchedText = event.nativeEvent.text
-    if (searchedText.length < 3) {
+  handleSubmit = () => {
+    if (this.searchText.length < 3) {
       alert('Enter atleast 3 characters to proceed')
     }
     else {
-      this.props.fetchMoviesList(searchedText)
+      this.props.fetchMoviesList(this.searchText)
     }
+  }
+
+  handleTextChange = (value) => {
+    this.searchText = value
   }
 
   renderSearchBar = () => {
     return (<View style={Styles.searchBarContainer}>
-      <TextInput onSubmitEditing={this.handleTextChange} placeholder={'Search Movies...'} style={Styles.flex_1}/>
+      <TextInput onChangeText={this.handleTextChange} onSubmitEditing={this.handleSubmit} placeholder={'Search Movies...'} style={Styles.flex_1}/>
       <Icon name='search' size={18} color={'rgb(117, 118, 124)'} style={Styles.searchIcon} />
     </View>);
   }

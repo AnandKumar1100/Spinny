@@ -34,6 +34,7 @@ export default class DetailsScreen extends Component {
         data={Object.values(shortlistedItem)}
         numColumns={2}
         keyExtractor={this.itemKeyExtractor}
+        style={Styles.flex_1}
         contentContainerStyle={Styles.listStyles}
         renderItem={this.renderItem}
         ListEmptyComponent={this.renderEmptyScreen} />

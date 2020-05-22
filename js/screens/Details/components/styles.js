@@ -6,6 +6,9 @@ export const Styles = StyleSheet.create({
         flex: 1,
         backgroundColor:'white'
     },
+    flex_1: {
+        flex: 1
+    },
     heading: {
         textAlign: 'center',
         fontSize: 14,
@@ -26,9 +29,9 @@ export const Styles = StyleSheet.create({
         borderRadius: 4
     },
     listStyles: {
-        flex: 1,
         paddingTop: 12,
-        paddingLeft: 16
+        paddingLeft: 16,
+        paddingBottom: 16
     },
     marginRight_16: {
         marginRight: 16
